@@ -1,4 +1,3 @@
-package com.bionic.mui.util;
 
 import android.app.ActivityManager;
 import android.content.Context;

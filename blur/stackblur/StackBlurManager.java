@@ -1,4 +1,3 @@
-package com.android.launcher3.stackblur;
 import java.io.FileOutputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

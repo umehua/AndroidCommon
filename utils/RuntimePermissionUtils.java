@@ -1,4 +1,3 @@
-package com.bionic.mui.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;

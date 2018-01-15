@@ -1,4 +1,3 @@
-package com.bionic.mui.util;
 
 import android.os.Build;
 import android.os.Environment;

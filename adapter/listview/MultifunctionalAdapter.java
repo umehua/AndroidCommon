@@ -1,4 +1,3 @@
-package com.bionic.mui.adapter.listview;
 
 import java.util.List;
 import java.util.Map;

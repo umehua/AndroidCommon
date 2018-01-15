@@ -1,4 +1,3 @@
-package com.android.launcher3.stackblur;
 import android.graphics.Bitmap;
 
 import java.util.ArrayList;

@@ -1,4 +1,3 @@
-package com.bionic.mui.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +17,19 @@ public class StatusBarHelper {
 	    return context.getResources().getDimensionPixelSize(resourceId);
 	}
 	
+    /**
+      * 当Activity布局是DrawerLayout时，应该使用DrawerLayout.setStatusBarColor来改变statusbar的颜色
+      * 否则Drawer Header会被StatusBar遮挡
+      */
 	public static void setStatusBarColor(Activity activity, int color) {
+		// 取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
+		activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // 需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+		activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+		activity.getWindow().setStatusBarColor(color);
+	}
+	
+	public static void setStatusNavBarColor(Activity activity, int color) {
 		if (Build.VERSION.SDK_INT >= 21) { // android 5.1
 			try {
 //				activity.getWindow().getAttributes().systemUiVisibility |= 
@@ -36,7 +47,7 @@ public class StatusBarHelper {
 				setStatusBarColorMethod.invoke(activity.getWindow(), color);
 				setNavigationBarColorMethod.invoke(activity.getWindow(), color);
 			} catch (Exception e) {
-				LogUtil.d(TAG, "setStatusBarColorForLauncher3 failed", e);
+				LogUtil.d(TAG, "setStatusNavBarColor() failed", e);
 			}
 		}
 	}

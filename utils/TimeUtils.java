@@ -1,4 +1,3 @@
-package com.bionic.mui.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,5 +36,15 @@ public class TimeUtils {
         } else {
             return splits[0];
         }
+    }
+
+    public static String getTimeString(long timestamp) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date(timestamp));
+    }
+
+    public static String getTimeString(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 }
